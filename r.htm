@@ -24,7 +24,7 @@
 
     <script type="text/babel">
 
-        var Square = React.createClass({
+        var Card = React.createClass({
             render: function () {
                 var cardStyle = {
                     height: 200,
@@ -40,6 +40,14 @@
             }
         });
 
+        var Square = React.createClass({
+            render: function () {
+                return (
+                    <p>Nothing</p>
+                );
+            }
+        });
+
         var Label = React.createClass({
             render: function () {
                 return (
@@ -48,16 +56,10 @@
             }
         });
 
-        var Card = React.createClass({
-            render: function () {
-                return (
-                    nothing
-                );
-            }
-        });
 
         ReactDOM.render (
-            <div>jeimaiwonie
+            <div>
+                <Card/>
             </div>,
             document.querySelector('#container')
         );
