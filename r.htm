@@ -7,13 +7,13 @@
     <style>
         #container {
             padding: 50px;
-            background-color: #eee;
+            background-color: #fff;
         }
-        #container h1 {
+        /*#container h1 {
             font-size: 48px;
             font-family: sans-serif;
             color: #0080A8;
-        }
+        }*/
     </style>
     <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
@@ -24,49 +24,28 @@
 
     <script type="text/babel">
 
-        var LightningCounter = React.createClass({
-            getInitialState: function () {
-                return {
-                    strikes: 0
-                }
-            },
-            timerTick: function () {
-                this.setState({
-                    strikes: this.state.strikes + 100
-                });
-            },
-            componentDidMount: function () {
-                setInterval(this.timerTick, 1000);
-            },
+        var Circle = React.createClass({
             render: function () {
-                return (
-                    <h1>{this.state.strikes}</h1>
+                var circleStyle = {
+                    padding: 10,
+                    margin: 20,
+                    display: "inline-block",
+                    backgroundColor: this.props.bgColor,
+                    borderRadius: "50%",
+                    width: 100,
+                    height: 100
+                };
+                return(
+                    <div style={circleStyle}></div>
                 );
             }
         });
 
-        var LightningCounterDisplay = React.createClass({
-            render: function () {
-                var divStyle = {
-                    width: 250,
-                    textAlign: "center",
-                    backgroundColor: "black",
-                    padding: 40,
-                    fontFamily: "sans-serif",
-                    color: "#999",
-                    borderRadius: 10
-                };
-                return (
-                    <div style={divStyle}>
-                        <LightningCounter/>
-                    </div>
-                );
-            } 
-        });
+        var destination = document.querySelector('#container');
 
         ReactDOM.render(
-            <LightningCounterDisplay/>,
-            document.querySelector("#container")
+            <Circle bgColor="#f9c240" />,
+            destination
         );
 
     </script>
